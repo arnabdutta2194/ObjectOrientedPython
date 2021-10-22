@@ -4,13 +4,10 @@ from dataclasses import dataclass
 
 
 '''Decorate your class with Data Class Decorator'''
-
 @dataclass 
 class Location:
     name : str
     position : Positions
-
-
 
 
 hongkong = Location("Hong Kong",Positions(22.29,114.16))
