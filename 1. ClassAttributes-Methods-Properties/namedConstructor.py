@@ -15,11 +15,11 @@ class ShippingContainer:
 
 
     @classmethod
-    def initialize_container(cls,owner_code):
+    def initialize_container(cls,owner_code):  #Named Constructors
         return cls(owner_code,contents = [])
 
     @classmethod
-    def create_with_items(cls,owner_code,items):
+    def create_with_items(cls,owner_code,items):  #Named Constructors
         return cls(owner_code,contents = list(items))
 
     def __init__(self, owner_code, contents):

@@ -50,6 +50,7 @@ class GradeBasedShippingContainer(ShippingContainer):
     @staticmethod
     def volume_ft3(self):
         return ( super().volume_ft3 - GradeBasedShippingContainer.FridgeVolume)
+    
     @property #When we decorate celcius method with property the returned object is also bound to the name celcius
     def celcius(self): #Getter Method
         return self._celcius

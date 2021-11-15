@@ -19,4 +19,5 @@ hides certain properties of a function like docstring, parameters.
 Which means it will hide data of original function'''
 '''But if we uncomment line no 4 we will find that it prints greet
 as @functools.wraps(func) copies the original data'''
+print(greet) 
 print(greet.__name__) 
