@@ -3,13 +3,14 @@ class ShippingContainer:
 
     #--- Since generate_serial is not a class method, or is accessed by any instance of the class
     #--- We can convert it into a Static Method
+    #--- Static Method do not require the self parameter
     @staticmethod #--- StaticMethod Decorator
     def _generate_serial():
         result = ShippingContainer.next_Serial
         ShippingContainer.next_Serial += 1
         return result
 
-    def __init__(self, owner_code, contents):
+    def __init__(self, owner_code, contents): #--- Init Method is called by default when a object is created
         self.owner_code = owner_code
         self.contents = contents
         self.serial = ShippingContainer._generate_serial()
