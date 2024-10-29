@@ -1,7 +1,9 @@
 class ShippingContainer:
     next_Serial = 1337
 
-    @staticmethod
+    #--- Since generate_serial is not a class method, or is accessed by any instance of the class
+    #--- We can convert it into a Static Method
+    @staticmethod #--- StaticMethod Decorator
     def _generate_serial():
         result = ShippingContainer.next_Serial
         ShippingContainer.next_Serial += 1

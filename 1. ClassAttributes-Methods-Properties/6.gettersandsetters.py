@@ -24,6 +24,7 @@ class ShippingContainer:
         return cls(owner_code,contents = list(items),grade="X",**kwargs)
 
     def __init__(self, owner_code, contents,grade,**kwargs):
+        print("Inside init")
         self.owner_code = owner_code
         self.contents = contents
         self.serial = ShippingContainer._generate_serial()

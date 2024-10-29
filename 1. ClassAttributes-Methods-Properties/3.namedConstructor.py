@@ -13,11 +13,13 @@ class ShippingContainer:
         cueCardId = ShippingContainer.cueCard + grade + category
         return cueCardId
 
-
+    #--- Named Constructors constructs a object of the class with some default configurations
+    #--- Here the named constructor is constructing the object with default contents as empty list
     @classmethod
     def initialize_container(cls,owner_code):  #Named Constructors
         return cls(owner_code,contents = [])
-
+    
+    #--- Here the named constructor is constructing the object by converting the items into a list
     @classmethod
     def create_with_items(cls,owner_code,items):  #Named Constructors
         return cls(owner_code,contents = list(items))
@@ -27,6 +29,7 @@ class ShippingContainer:
         self.contents = contents
         self.serial = ShippingContainer._generate_serial()
         self.cueCardIdNo = ShippingContainer._generateCueCard("X")
+
 newOwner3 = ShippingContainer.initialize_container("XYZ1234") #named constructor
 newOwner4 = ShippingContainer.create_with_items("XYZ1235",{"food","textiles","minerals"}) #named constructor
 

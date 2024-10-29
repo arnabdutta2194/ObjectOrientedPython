@@ -1,6 +1,8 @@
 class ShippingContainer:
     next_Serial = 1337
 
+    #--- As an alternatice to static method , we can also use a class method
+    #--- cls keyword helps to access all the class attributes
     @classmethod
     def _generate_serial(cls):
         result = cls.next_Serial
