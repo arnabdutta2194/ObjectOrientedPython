@@ -21,7 +21,7 @@ class Report:
         return f"Title: {self.title}\nContent: {self.content}"
 
 class ReportSaver:
-    def save_to_file(self, report, filename):
+    def save_to_file(self, report, filename): #-- Here the report object is passed through
         with open(filename, 'w') as file:
             file.write(report.generate())
 
