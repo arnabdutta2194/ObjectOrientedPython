@@ -8,10 +8,12 @@ class Person:
         self.company_name = None
         self.position = None
         self.annual_income = None
+        #relationship/sex
+        self.relationship=None
+        self.sex = None
 
     def __str__(self) -> str:
-        return f'Address {self.street_address}, {self.postcode}, {self.city}' + f'Employed At {self.company_name} as a {self.position} earning {self.annual_income}'
-
+        return f'Address {self.street_address}, {self.postcode}, {self.city}' + f'Employed At {self.company_name} as a {self.position} earning {self.annual_income} . Relationship Status {self.relationship}, sex : {self.sex}'
 class PersonBuilder:
     def __init__(self,person=Person()): #---Initializing the person builder with blank person
         self.person = person
@@ -23,6 +25,10 @@ class PersonBuilder:
     @property
     def lives(self):
         return PersonAddressBuilder(self.person) #---Multiple builders used to construct the object
+    
+    @property
+    def relationship_sex(self):
+        return PersonRelationshipSexBuilder(self.person)
     
     def build(self):
         return self.person
@@ -58,6 +64,18 @@ class PersonAddressBuilder(PersonBuilder):
         self.person.city =city
         return self
 
+class PersonRelationshipSexBuilder(PersonBuilder):
+    def __init__(self, person):
+        super().__init__(person)
+    
+    def relationship(self,relationship_status):
+        self.person.relationship =relationship_status
+        return self
+    
+    def sex(self,sex):
+        self.person.sex =sex
+        return self
+
 pb = PersonBuilder()
-person = pb.lives.at('PMGSY Road').in_city('Siliguri').with_postcode('734011').works.at('ABC Corp').as_a('SDE II').earning('12 LPA').build()
+person = pb.lives.at('PMGSY Road').in_city('Siliguri').with_postcode('734011').works.at('ABC Corp').as_a('SDE II').earning('12 LPA').relationship_sex.relationship('Single').sex('M').build()
 print(person)
